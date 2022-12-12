@@ -1,3 +1,14 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+# config/routes.yaml
+weather_in_city:
+  path: /weather/{city}
+  controller: App\Controller\WeatherController:cityAction
+  defaults:
+    city: 1
+  requirements:
+    city: \d+
+app_weather_api:
+  path: /weather/api/{type}/{city}
+  controller: App\Controller\WeatherApiController:weatherApiAction
+app_logout:
+  path: /logout
+  methods: GET
